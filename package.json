@@ -1,7 +1,15 @@
 {
-  "name": "discogs-pedia",
+  "name": "discogspedia",
   "version": "0.1.0",
-  "private": true,
+  "description": "App that lets you find your favourite music releases. Powered by Discogs API",
+  "repository": {
+    "url": "https://github.com/sprakash57/discogspedia"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Sunny Prakash",
+    "email": "sunny.prakashgm@gmail.com"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
