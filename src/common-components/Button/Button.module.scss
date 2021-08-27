@@ -1,0 +1,15 @@
+.btn {
+    border: none;
+    background: none;
+    padding: 0.9rem;
+    box-shadow: 3px 3px 4px hsl(0, 0%, 76%), -3px -2px 4px hsl(0, 0%, 95%);
+    border-radius: 20px;
+    color: var(--primary);
+    min-width: 60px;
+    &:hover {
+        cursor: pointer;
+    }
+    &:active {
+        box-shadow: inset 3px 3px 4px hsl(0, 0%, 76%), 4px 4px 4px hsl(0, 0%, 95%);
+    }
+}
