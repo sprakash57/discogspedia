@@ -25,7 +25,7 @@ const NavSearch = ({ onSearch }: Props) => {
     }
 
     return (
-        <header className={styles.nav}>
+        <nav className={styles.nav}>
             <h1 className={styles.nav__h1}>DiscogsPedia</h1>
             <summary className={styles.nav__summary}>Find your favourite discogs release right here.</summary>
             <form onSubmit={handleSearch} className={styles.nav__form}>
@@ -39,7 +39,7 @@ const NavSearch = ({ onSearch }: Props) => {
                 <Button>Go</Button>
             </form>
             {hasFeedback && <small className={styles.nav__feedback}>Hmm... That doesn't look right. Did you forget to type something?</small>}
-        </header>
+        </nav>
     )
 }
 

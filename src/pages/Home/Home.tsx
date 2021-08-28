@@ -1,3 +1,4 @@
+import Pagination from "components/Pagination";
 import NavSearch from "components/NavSearch";
 import Release from "components/Release";
 import { useState } from "react";
@@ -12,7 +13,7 @@ const Home = () => {
     setQuery(query);
   }
 
-  const { data, status } = useGetReleases(query, page);
+  const { data, status, isPreviousData } = useGetReleases(query, page);
 
   const renderContent = () => {
     if (status === "loading") return <div>Loading...</div>
@@ -20,7 +21,23 @@ const Home = () => {
     if (status === "error") return <div>Something went wrong</div>
 
     if (status === "success" && data?.results.length) {
-      return data.results.map(result => <Release key={result.id} content={result} />)
+      const { results, pagination } = data;
+      const handlePagination = (page: number) => {
+        setPage(page);
+      }
+      return (
+        <>
+          <Pagination
+            pagination={pagination}
+            isPreviousData={isPreviousData}
+            page={page}
+            onPaginate={handlePagination}
+          />
+          <div className={styles.releases}>
+            {results.map(result => <Release key={result.id} content={result} />)}
+          </div>
+        </>
+      )
     }
     if (data?.results.length === 0) return <div>No results found</div>
 
@@ -30,7 +47,7 @@ const Home = () => {
   return (
     <main>
       <NavSearch onSearch={handleSearch} />
-      <section className={styles.releases}>
+      <section>
         {renderContent()}
       </section>
     </main>
