@@ -1,13 +1,29 @@
 import Button from 'common-components/Button';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './NavSearch.module.scss';
 
-const NavSearch = () => {
-    const handleSearch = (e: React.SyntheticEvent) => {
+type Props = {
+    onSearch: (query: string) => void;
+}
+
+const NavSearch = ({ onSearch }: Props) => {
+    const [query, setQuery] = useState("");
+    const [hasFeedback, setHasFeedback] = useState(false);
+
+    const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        const target = e.target as HTMLInputElement;
-        console.log(target.value);
+        if (query) {
+            setHasFeedback(false);
+            onSearch(query);
+        } else {
+            setHasFeedback(true);
+        }
     }
+
+    const handleQuery = (e: React.FormEvent<HTMLInputElement>) => {
+        setQuery((e.target as HTMLInputElement).value);
+    }
+
     return (
         <header className={styles.nav}>
             <h1 className={styles.nav__h1}>DiscogsPedia</h1>
@@ -16,11 +32,13 @@ const NavSearch = () => {
                 <input
                     className={styles.nav__search}
                     type="search"
-                    name="book"
+                    name="query"
+                    onChange={handleQuery}
                     placeholder="What's next?"
                 />
                 <Button>Go</Button>
             </form>
+            {hasFeedback && <small className={styles.nav__feedback}>Hmm... That doesn't look right. Did you forget to type something?</small>}
         </header>
     )
 }
