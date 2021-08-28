@@ -14,11 +14,11 @@ const Home = () => {
 
   const { data, status } = useGetReleases(query, page);
 
-  if (status === "loading") return <div>Loading...</div>
-
-  if (status === "error") return <div>Something went wrong</div>
-
   const renderContent = () => {
+    if (status === "loading") return <div>Loading...</div>
+
+    if (status === "error") return <div>Something went wrong</div>
+
     if (status === "success" && data?.results.length) {
       return data.results.map(result => <Release key={result.id} content={result} />)
     }

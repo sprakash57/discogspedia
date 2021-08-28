@@ -2,6 +2,10 @@
     max-width: 1000px;
     text-align: center;
     margin: 2rem auto;
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: white;
 }
 .nav__h1 {
     font-size: 3.5rem;

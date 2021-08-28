@@ -18,7 +18,7 @@ const Release = ({ content }: { content: Result }) => {
                         <p><strong>Genre:</strong> {genre.slice(0, 3).join(", ")}</p>
                     </div>
                     <div className={styles.format}>
-                        {format.slice(0, 3).map(item => <p key={item}>{item}</p>)}
+                        {format.slice(0, 3).map((item, i) => <p key={i}>{item}</p>)}
                     </div>
                 </div>
             </section>
