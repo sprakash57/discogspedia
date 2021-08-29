@@ -13,4 +13,8 @@
     &:active {
         box-shadow: inset 3px 3px 4px var(--purple200), 4px 4px 4px var(--purple100);
     }
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
 }

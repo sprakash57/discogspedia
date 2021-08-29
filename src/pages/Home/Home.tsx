@@ -51,7 +51,7 @@ const Home = () => {
         pagination={data?.pagination}
         isPreviousData={isPreviousData}
         page={page}
-        onPaginate={() => setPage(page)}
+        onPaginate={(page) => setPage(page)}
         onSearch={(query) => setQuery(query)}
       />
       {renderContent()}
