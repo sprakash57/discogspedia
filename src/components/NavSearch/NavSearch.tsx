@@ -1,12 +1,17 @@
 import Button from 'common-components/Button';
+import Pagination from 'components/Pagination';
 import React, { useState } from 'react';
 import styles from './NavSearch.module.scss';
 
 type Props = {
+    pagination?: Pagination;
+    page: number;
+    isPreviousData: boolean;
+    onPaginate: (page: number) => void;
     onSearch: (query: string) => void;
 }
 
-const NavSearch = ({ onSearch }: Props) => {
+const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: Props) => {
     const [query, setQuery] = useState("");
     const [hasFeedback, setHasFeedback] = useState(false);
 
@@ -27,18 +32,30 @@ const NavSearch = ({ onSearch }: Props) => {
     return (
         <nav className={styles.nav}>
             <h1 className={styles.nav__h1}>DiscogsPedia</h1>
-            <summary className={styles.nav__summary}>Find your favourite discogs release right here.</summary>
+            <summary className={styles.nav__summary}>Find your favourite release right here.</summary>
             <form onSubmit={handleSearch} className={styles.nav__form}>
                 <input
                     className={styles.nav__search}
                     type="search"
                     name="query"
                     onChange={handleQuery}
-                    placeholder="What's next?"
+                    placeholder="Type Moderat..."
                 />
-                <Button>Go</Button>
+                <Button>Search</Button>
             </form>
-            {hasFeedback && <small className={styles.nav__feedback}>Hmm... That doesn't look right. Did you forget to type something?</small>}
+            {/* <small
+                style={{ visibility: hasFeedback ? "visible" : "hidden" }}
+                className={styles.nav__feedback}>
+                Hmm... That doesn't look right. Did you forget to type something?
+            </small> */}
+            {!!pagination && (
+                <Pagination
+                    pagination={pagination}
+                    isPreviousData={isPreviousData}
+                    page={page}
+                    onPaginate={onPaginate}
+                />
+            )}
         </nav>
     )
 }

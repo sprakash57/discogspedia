@@ -1,46 +1,50 @@
 .nav {
-    max-width: 1000px;
     text-align: center;
-    margin: 2rem auto;
+    background-image: linear-gradient(to bottom, var(--purple200), var(--purple100));
+    padding-top: 2rem;
     position: sticky;
     top: 0;
-    z-index: 9;
-    background: white;
+    z-index: 99;
 }
 .nav__h1 {
-    font-size: 3.5rem;
-    font-weight: 100;
-    font-family: cursive;
+    font-size: 3rem;
+    font-weight: 800;
     margin: 0 auto;
     border-bottom: 1px solid;
     padding: 0 2rem 0.5rem;
     width: fit-content;
+    color: var(--cyan);
 }
 .nav__summary {
-    color: var(--secondary);
+    color: white;
     margin: 1rem;
-    font-family: cursive;
     font-size: 0.9rem;
 }
 .nav__search {
-    box-shadow: inset 3px 3px 4px hsl(0, 0%, 76%), 4px 4px 4px hsl(0, 0%, 95%);
+    box-shadow: inset 3px 3px 4px var(--purple200), 4px 4px 4px var(--purple100);
     border-radius: 20px;
+    background-color: var(--cyan);
     border: none;
     width: 70%;
+    max-width: 600px;
     padding: 0.8rem;
     margin-right: 1rem;
     outline: none;
     font-family: inherit;
     font-size: inherit;
+    color: white;
+    &:active {
+        background-color: var(--cyan) !important;
+    }
 }
 .nav__feedback {
-    color: tomato;
+    color: white;
     margin: 1rem;
     display: block;
 }
 .nav__form {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
 }
 @media (min-width: 640px) {
