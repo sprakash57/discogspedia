@@ -23,7 +23,7 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: P
             <div ref={ref} className={styles.details}>
                 <Button onClick={onClose} className={styles.details__btn} aria-label="Close">X</Button>
                 <Image src={thumb} alt="Cover" />
-                <h3>{title}</h3>
+                <h3 title={title}>{ellipsisText(title)}</h3>
                 <div className={styles.details__basics}>
                     <p><strong>Country</strong><span>{country}</span></p>
                     <p><strong>Released</strong><span>{released}</span></p>

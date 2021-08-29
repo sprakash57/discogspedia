@@ -1,5 +1,6 @@
 import Button from 'common-components/Button';
 import Image from 'common-components/Image';
+import { ellipsisText } from 'helpers/utils';
 import styles from './Release.module.scss';
 
 type Props = {
@@ -14,7 +15,7 @@ const Release = ({ content, onSelect }: Props) => {
             <Image src={thumb} alt="Cover" />
             <section className={styles.body}>
                 <header className={styles.body__header}>
-                    <h2>{title}</h2>
+                    <h2 title={title}>{ellipsisText(title)}</h2>
                     <summary>{label[0]}</summary>
                 </header>
                 <div className={styles.body__content}>
