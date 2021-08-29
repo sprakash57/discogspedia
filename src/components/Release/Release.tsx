@@ -1,6 +1,12 @@
+import Button from 'common-components/Button';
 import styles from './Release.module.scss';
 
-const Release = ({ content }: { content: Result }) => {
+type Props = {
+    content: Result;
+    onSelect: (content: Result) => void;
+}
+
+const Release = ({ content, onSelect }: Props) => {
     const { thumb, title, label, country, year, format, genre } = content;
     return (
         <article className={styles.release}>
@@ -21,6 +27,9 @@ const Release = ({ content }: { content: Result }) => {
                         {format.slice(0, 3).map((item, i) => <p key={i}>{item}</p>)}
                     </div>
                 </div>
+            </section>
+            <section className={styles.release__detail}>
+                <Button onClick={() => onSelect(content)}>More Details</Button>
             </section>
         </article>
     )

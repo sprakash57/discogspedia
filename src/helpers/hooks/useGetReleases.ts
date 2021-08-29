@@ -13,7 +13,7 @@ const fetchReleases = async (query: string, page: number = 1): Promise<Releases>
     return response.json();
 }
 
-export const useGetReleases = (query: string, page: number) => {
+const useGetReleases = (query: string, page: number) => {
     return useQuery(
         ["allReleases", query, page],
         () => fetchReleases(query, page),
@@ -23,3 +23,5 @@ export const useGetReleases = (query: string, page: number) => {
         }
     );
 }
+
+export default useGetReleases;

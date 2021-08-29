@@ -1,0 +1,25 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 0%, 0.8);
+    z-index: 9999;
+}
+.container {
+    width: 550px;
+    height: 630px;
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    z-index: 9999;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        width: 370px;
+    }
+}

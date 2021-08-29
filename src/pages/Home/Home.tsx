@@ -2,12 +2,17 @@ import Pagination from "components/Pagination";
 import NavSearch from "components/NavSearch";
 import Release from "components/Release";
 import { useState } from "react";
-import { useGetReleases } from "services/useGetReleases";
+import { useGetReleases, useGetOuterRef } from "helpers/hooks";
 import styles from './Home.module.scss';
+import Modal from "common-components/Modal";
+import ReleaseDetail from "components/ReleaseDetail";
 
 const Home = () => {
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [release, setRelease] = useState<Result>();
+  const releaseRef = useGetOuterRef(() => setIsOpen(false));
 
   const handleSearch = (query: string) => {
     setQuery(query);
@@ -25,6 +30,11 @@ const Home = () => {
       const handlePagination = (page: number) => {
         setPage(page);
       }
+      const handleSelect = (content: Result) => {
+        setIsOpen(true);
+        setRelease(content);
+      }
+
       return (
         <>
           <Pagination
@@ -34,7 +44,7 @@ const Home = () => {
             onPaginate={handlePagination}
           />
           <div className={styles.releases}>
-            {results.map(result => <Release key={result.id} content={result} />)}
+            {results.map(result => <Release key={result.id} content={result} onSelect={handleSelect} />)}
           </div>
         </>
       )
@@ -50,6 +60,11 @@ const Home = () => {
       <section>
         {renderContent()}
       </section>
+      {!!release && (
+        <Modal isOpen={isOpen}>
+          <ReleaseDetail content={release} ref={releaseRef} />
+        </Modal>
+      )}
     </main>
   );
 }

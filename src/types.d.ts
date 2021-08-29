@@ -22,8 +22,29 @@ type Pagination = {
         prev?: string;
     }
 }
-
 interface Releases {
     results: Result[];
     pagination: Pagination;
+}
+
+type TrackList = {
+    position: string;
+    title: string;
+    duration: string;
+}
+
+type Community = {
+    have: number;
+    want: number;
+    rating: {
+        count: number,
+        average: number
+    }
+}
+
+interface Release {
+    community: Community;
+    released: string;
+    styles: string[];
+    tracklist: TrackList[];
 }
