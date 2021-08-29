@@ -33,6 +33,7 @@
     margin: 0;
     * {
         @include flex-space-between();
+        font-size: 0.8rem;
     }
 }
 .details__btn {
