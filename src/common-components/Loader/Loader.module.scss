@@ -1,0 +1,54 @@
+
+.loader {
+   position: relative;
+   margin: 2rem auto;
+   width: 100px;
+   height: 100px;
+   overflow: hidden;
+   border-radius: 50%;
+   background: linear-gradient(var(--cyan), var(--purple200), var(--purple300));
+   box-shadow: -3px -3px 5px hsla(0, 0%, 100%, 0.2), 3px 3px 5px var(--purple200);
+    span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: linear-gradient(var(--cyan), var(--cyan), var(--purple200), var(--purple300));
+        &:nth-child(1) {
+            filter: blur(5px);
+        }
+        &:nth-child(2) {
+            filter: blur(10px);
+        }
+        &:nth-child(3) {
+            filter: blur(15px);
+        }
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        right: 15px;
+        bottom: 15px;
+        background: var(--purple100);
+        border-radius: 50%;
+        box-shadow: inset -3px -3px 5px hsla(0, 0%, 100%, 0.2), inset 3px 3px 5px var(--purple200);
+    }
+    &::before {
+        content: "";
+        left: 15px;
+        top: 15px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        background-color: white;
+        z-index: 99;
+        border-radius: 50%;
+    }
+   animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

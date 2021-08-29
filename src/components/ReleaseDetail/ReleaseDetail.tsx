@@ -1,5 +1,6 @@
 import Button from 'common-components/Button';
 import Image from 'common-components/Image';
+import Loader from 'common-components/Loader';
 import { useGetRelease } from 'helpers/hooks';
 import { ellipsisText } from 'helpers/utils';
 import { forwardRef } from 'react';
@@ -13,7 +14,7 @@ type Props = {
 const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: Props, ref) => {
     const { data, status } = useGetRelease(content.id);
 
-    if (status === "loading") return <div>Loading...</div>;
+    if (status === "loading") return <Loader />;
 
     if (status === "success" && data) {
         const { thumb, title = "--", format, label, country = "--", genre } = content;

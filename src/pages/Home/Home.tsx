@@ -5,6 +5,7 @@ import { useGetReleases, useGetOuterRef } from "helpers/hooks";
 import styles from './Home.module.scss';
 import Modal from "common-components/Modal";
 import ReleaseDetail from "components/ReleaseDetail";
+import Loader from "common-components/Loader";
 
 const Home = () => {
   const [page, setPage] = useState(1);
@@ -15,7 +16,7 @@ const Home = () => {
   const { data, status, isPreviousData } = useGetReleases(query, page);
 
   const renderContent = () => {
-    if (status === "loading") return <div>Loading...</div>
+    if (status === "loading") return <Loader />
 
     if (status === "error") return <div className={styles.alert}>Something went wrong! Try again.</div>
 
@@ -53,9 +54,7 @@ const Home = () => {
         onPaginate={() => setPage(page)}
         onSearch={(query) => setQuery(query)}
       />
-      <section>
-        {renderContent()}
-      </section>
+      {renderContent()}
       {!!release && (
         <Modal isOpen={isOpen}>
           <ReleaseDetail ref={releaseRef} content={release} onClose={() => setIsOpen(false)} />
