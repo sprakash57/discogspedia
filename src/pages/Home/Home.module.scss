@@ -11,3 +11,10 @@
     grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
     padding: 2rem 3rem;
 }
+.alert {
+    padding: 3rem 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+}

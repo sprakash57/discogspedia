@@ -13,16 +13,10 @@ type Props = {
 
 const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: Props) => {
     const [query, setQuery] = useState("");
-    const [hasFeedback, setHasFeedback] = useState(false);
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        if (query) {
-            setHasFeedback(false);
-            onSearch(query);
-        } else {
-            setHasFeedback(true);
-        }
+        onSearch(query);
     }
 
     const handleQuery = (e: React.FormEvent<HTMLInputElement>) => {
@@ -43,11 +37,6 @@ const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: P
                 />
                 <Button>Search</Button>
             </form>
-            {/* <small
-                style={{ visibility: hasFeedback ? "visible" : "hidden" }}
-                className={styles.nav__feedback}>
-                Hmm... That doesn't look right. Did you forget to type something?
-            </small> */}
             {!!pagination && (
                 <Pagination
                     pagination={pagination}

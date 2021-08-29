@@ -1,10 +1,8 @@
 import { useQuery } from "react-query";
 
-const BASE_URL = "https://api.discogs.com";
-
-const fetchReleases = async (query: string, page: number = 1): Promise<Releases> => {
+const fetchReleases = async (query: string | undefined, page: number = 1): Promise<Releases> => {
     const response = await fetch(
-        `${BASE_URL}/database/search?q=${query}&type=release&page=${page}&per_page=20`,
+        `${process.env.REACT_APP_BASE_URL}/database/search?q=${query}&type=release&page=${page}&per_page=20`,
         {
             headers: {
                 "Authorization": `Discogs token=${process.env.REACT_APP_DISCOGS_TOKEN}`
@@ -13,13 +11,13 @@ const fetchReleases = async (query: string, page: number = 1): Promise<Releases>
     return response.json();
 }
 
-const useGetReleases = (query: string, page: number) => {
+const useGetReleases = (query: string | undefined, page: number) => {
     return useQuery(
         ["allReleases", query, page],
         () => fetchReleases(query, page),
         {
             keepPreviousData: true,
-            enabled: !!query
+            enabled: typeof query === "string"
         }
     );
 }

@@ -8,28 +8,16 @@ import ReleaseDetail from "components/ReleaseDetail";
 
 const Home = () => {
   const [page, setPage] = useState(1);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string | undefined>(undefined);
   const [isOpen, setIsOpen] = useState(false);
   const [release, setRelease] = useState<Result>();
-  const closeModal = () => {
-    setIsOpen(false);
-  }
-  const releaseRef = useGetOuterRef(closeModal);
-
-  const handleSearch = (query: string) => {
-    setQuery(query);
-  }
-
+  const releaseRef = useGetOuterRef(() => setIsOpen(false));
   const { data, status, isPreviousData } = useGetReleases(query, page);
-
-  const handlePagination = (page: number) => {
-    setPage(page);
-  }
 
   const renderContent = () => {
     if (status === "loading") return <div>Loading...</div>
 
-    if (status === "error") return <div>Something went wrong</div>
+    if (status === "error") return <div className={styles.alert}>Something went wrong! Try again.</div>
 
     if (status === "success" && data?.results.length) {
       const { results } = data;
@@ -39,23 +27,21 @@ const Home = () => {
       }
 
       return (
-        <>
-
-          <div className={styles.releases}>
-            {results.map(result => (
-              <Release
-                key={result.id}
-                content={result}
-                onSelect={handleSelect}
-              />
-            ))}
-          </div>
-        </>
+        <div className={styles.releases}>
+          {results.map(result => (
+            <Release
+              key={result.id}
+              content={result}
+              onSelect={handleSelect}
+            />
+          ))}
+        </div>
       )
     }
-    if (data?.results.length === 0) return <div>No results found</div>
 
-    return <div>Looking for something?!</div>
+    if (data?.results.length === 0) return <div className={styles.alert}>No results found!</div>
+
+    return null;
   }
 
   return (
@@ -64,15 +50,15 @@ const Home = () => {
         pagination={data?.pagination}
         isPreviousData={isPreviousData}
         page={page}
-        onPaginate={handlePagination}
-        onSearch={handleSearch}
+        onPaginate={() => setPage(page)}
+        onSearch={(query) => setQuery(query)}
       />
       <section>
         {renderContent()}
       </section>
       {!!release && (
         <Modal isOpen={isOpen}>
-          <ReleaseDetail ref={releaseRef} content={release} onClose={closeModal} />
+          <ReleaseDetail ref={releaseRef} content={release} onClose={() => setIsOpen(false)} />
         </Modal>
       )}
     </main>

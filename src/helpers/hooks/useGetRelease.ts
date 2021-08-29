@@ -1,10 +1,8 @@
 import { useQuery } from "react-query";
 
-const BASE_URL = "https://api.discogs.com";
-
 const fetchRelease = async (release: number): Promise<Release> => {
     const response = await fetch(
-        `${BASE_URL}/releases/${release}`,
+        `${process.env.REACT_APP_BASE_URL}/releases/${release}`,
         {
             headers: {
                 "Authorization": `Discogs token=${process.env.REACT_APP_DISCOGS_TOKEN}`
@@ -15,7 +13,7 @@ const fetchRelease = async (release: number): Promise<Release> => {
 
 const useGetReleases = (release: number) => {
     return useQuery(
-        ["allReleases", release],
+        ["release", release],
         () => fetchRelease(release),
         { cacheTime: 1000 } // Always pull fresh data on mount
     );
