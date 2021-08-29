@@ -45,11 +45,11 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: P
                         <strong>Title</strong>
                         <strong>Duration</strong>
                     </li>
-                    {tracklist.map(({ position = "--", title, duration = "--" }, i) => (
+                    {tracklist.map(({ position, title, duration }, i) => (
                         <li key={i}>
-                            <span>{position}</span>
+                            <span>{position || "--"}</span>
                             <span>{ellipsisText(title)}</span>
-                            <span>{duration}</span>
+                            <span>{duration || "--"}</span>
                         </li>
                     ))}
                 </ul>

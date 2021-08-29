@@ -7,12 +7,13 @@
     padding: 0.5rem 2rem;
     text-align: center;
     overflow: auto;
+    color: white;
     h3 {
         font-size: 1.2rem;
         padding: 0.2rem;
-        margin: 0.5rem 0;
+        margin: 0.8rem 0;
         border-radius: 20px;
-        box-shadow: 3px 5px 7px 0px #c2c2c2, -3px -2px 7px #f2f2f2;
+        box-shadow: 3px 3px 4px var(--purple200), -3px -2px 4px var(--purple400);
     }
     p {
         margin: 0;

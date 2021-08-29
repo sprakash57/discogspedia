@@ -37,3 +37,12 @@ body {
   color: white;
   opacity: 0.6;
 }
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 0.3vw;
+  background-image: linear-gradient(to bottom, var(--purple300), var(--purple100), var(--purple100));
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyan);
+  border-radius: 20px;
+}
