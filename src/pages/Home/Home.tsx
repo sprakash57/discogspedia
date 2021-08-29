@@ -12,7 +12,10 @@ const Home = () => {
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [release, setRelease] = useState<Result>();
-  const releaseRef = useGetOuterRef(() => setIsOpen(false));
+  const closeModal = () => {
+    setIsOpen(false);
+  }
+  const releaseRef = useGetOuterRef(closeModal);
 
   const handleSearch = (query: string) => {
     setQuery(query);
@@ -44,7 +47,13 @@ const Home = () => {
             onPaginate={handlePagination}
           />
           <div className={styles.releases}>
-            {results.map(result => <Release key={result.id} content={result} onSelect={handleSelect} />)}
+            {results.map(result => (
+              <Release
+                key={result.id}
+                content={result}
+                onSelect={handleSelect}
+              />
+            ))}
           </div>
         </>
       )
@@ -62,7 +71,7 @@ const Home = () => {
       </section>
       {!!release && (
         <Modal isOpen={isOpen}>
-          <ReleaseDetail content={release} ref={releaseRef} />
+          <ReleaseDetail ref={releaseRef} content={release} onClose={closeModal} />
         </Modal>
       )}
     </main>

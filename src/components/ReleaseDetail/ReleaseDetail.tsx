@@ -1,3 +1,4 @@
+import Button from 'common-components/Button';
 import Image from 'common-components/Image';
 import { useGetRelease } from 'helpers/hooks';
 import { ellipsisText } from 'helpers/utils';
@@ -6,9 +7,10 @@ import styles from './ReleaseDetail.module.scss';
 
 type Props = {
     content: Result;
+    onClose: () => void;
 }
 
-const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content }: Props, ref) => {
+const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: Props, ref) => {
     const { data, status } = useGetRelease(content.id);
 
     if (status === "loading") return <div>Loading...</div>;
@@ -18,6 +20,7 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content }: Props, ref
         const { released, community, tracklist } = data;
         return (
             <div ref={ref} className={styles.details}>
+                <Button onClick={onClose} className={styles.details__btn} aria-label="Close">X</Button>
                 <Image src={thumb} alt="Cover" />
                 <h3>{title}</h3>
                 <div className={styles.details__basics}>
@@ -41,8 +44,8 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content }: Props, ref
                         <strong>Title</strong>
                         <strong>Duration</strong>
                     </li>
-                    {tracklist.map(({ position = "--", title, duration = "--" }) => (
-                        <li>
+                    {tracklist.map(({ position = "--", title, duration = "--" }, i) => (
+                        <li key={i}>
                             <span>{position}</span>
                             <span>{ellipsisText(title)}</span>
                             <span>{duration}</span>

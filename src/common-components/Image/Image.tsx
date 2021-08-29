@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styles from './Image.module.scss';
 import NoThumb from 'assets/default.jpg';
 import { clsx } from 'helpers/utils';
-
 interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
     src: string;
     alt: string;
@@ -15,6 +14,7 @@ const Image = ({ src, alt, containerAttributes, containerClassName, className, .
     const [thumb, setThumb] = useState(src);
 
     const handleNoImage = () => {
+        // Fallback to default image if no thumb found in response
         setThumb(NoThumb)
     }
 
