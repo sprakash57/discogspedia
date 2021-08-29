@@ -1,3 +1,4 @@
+import Image from 'common-components/Image';
 import { useGetRelease } from 'helpers/hooks';
 import { ellipsisText } from 'helpers/utils';
 import { forwardRef } from 'react';
@@ -17,9 +18,7 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content }: Props, ref
         const { released, community, tracklist } = data;
         return (
             <div ref={ref} className={styles.details}>
-                <figure className={styles.details__img}>
-                    <img src={thumb} alt="cover" />
-                </figure>
+                <Image src={thumb} alt="Cover" />
                 <h3>{title}</h3>
                 <div className={styles.details__basics}>
                     <p><strong>Country</strong><span>{country}</span></p>
@@ -36,7 +35,7 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content }: Props, ref
                     <p><strong>Rating</strong><span>{community?.rating.average}/5</span></p>
                 </div>
                 <h3>Tracks</h3>
-                <ul className={styles.tracks}>
+                <ul className={styles.details__tracks}>
                     <li>
                         <strong>Position</strong>
                         <strong>Title</strong>

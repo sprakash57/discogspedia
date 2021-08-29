@@ -1,4 +1,5 @@
 import Button from 'common-components/Button';
+import Image from 'common-components/Image';
 import styles from './Release.module.scss';
 
 type Props = {
@@ -10,9 +11,7 @@ const Release = ({ content, onSelect }: Props) => {
     const { thumb, title, label, country, year, format, genre } = content;
     return (
         <article className={styles.release}>
-            <section className={styles.release__img}>
-                <img src={thumb} alt="thumb" />
-            </section>
+            <Image src={thumb} alt="Cover" />
             <section className={styles.body}>
                 <header className={styles.body__header}>
                     <h2>{title}</h2>

@@ -18,21 +18,12 @@
         font-size: 0.8rem;
     }
 }
-.details__img {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    border-radius: 50%;
-    img {
-        border-radius: 50%;
-    }
-}
 .details__basics {
     * {
         @include flex-space-between();
     }
 }
-.tracks {
+.details__tracks {
     overflow: auto;
     height: 150px;
     list-style-type: none;
