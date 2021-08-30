@@ -1,6 +1,6 @@
 {
   "name": "discogspedia",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "App that lets you find your favourite music releases. Powered by Discogs API",
   "repository": {
     "url": "https://github.com/sprakash57/discogspedia"
