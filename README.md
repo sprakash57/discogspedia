@@ -4,15 +4,17 @@
 
 Here you will find releases published over <a href="https://www.discogs.com/" target="_blank" rel="noopener noreferrer">Discogs</a> website. The app has been bootstrapped with create-react-app.
 
-## Demo
+## Demo and walkthrough
 
-DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https://discogspedia.netlify.app" target="_blank" rel="noopener noreferrer">here</a>.
+DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https://discogspedia.netlify.app" target="_blank" rel="noopener noreferrer">here</a>. App has a search bar, search button and pagination panel (that will appear once you click on search). Once you provide a search query, it will fetch all the related releases and render it on UI. Try hovering over the cards and you will get an option to see `more details` clickig on which will reveal a modal with additional details. 
+
+> Psst! Don't know what to type in the search bar. Well click on the search button instead.
 
 ## Local setup
 
 - You need Node.js v14+ to run this application.
 - Clone this repo and go to the clonned directory and run `yarn install`. It will install all the dependencies needed to run DiscogsPedia.
-- Create `.env` file with help of provided `.env.exmaple` file.
+- Create `.env` file with the help of provided `.env.exmaple` file.
 
 ## Available scripts
 
@@ -40,6 +42,6 @@ DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https:
 ## Area of Improvements
 
 - More test cases can be added for `common-components`.
-- I tried my best to implement `Neumorphic` designs. Some of the color combinations or UX can be improved with the help of some design system or UI toolkit. Pure vanilla Sass modules are my favourite for now 😅.
+- I tried my best to implement `Neumorphic` designs. Color combinations or UX can be improved with the help of some design system or UI toolkit. Pure vanilla Sass modules are my favourite for now 😅.
 - PWA and offline needs more polishing or maybe better approach since this is my first ever attempt to achieve these.
 
