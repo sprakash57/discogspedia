@@ -40,7 +40,7 @@ const Home = () => {
       )
     }
 
-    if (data?.results.length === 0) return <div className={styles.alert} role="alert">No results found!</div>
+    if (!data?.results.length) return <div className={styles.alert} role="alert">No results found!</div>
 
     return null;
   }
