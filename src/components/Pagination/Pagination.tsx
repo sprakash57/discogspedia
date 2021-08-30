@@ -22,9 +22,10 @@ const Pagination = ({ pagination, page, isPreviousData, onPaginate }: Props) => 
 
     return (
         <section className={styles.panel} aria-label="Page Navigation">
-            <Button onClick={handleClick} disabled={!urls?.first} tabIndex={0}>First</Button>
+            <Button onClick={handleClick} disabled={!urls?.first} tabIndex={0} data-testid="first">First</Button>
             <div className={styles.panel__prevnext}>
                 <Button
+                    data-testid="prev"
                     onClick={handleClick}
                     disabled={!urls?.prev}
                     tabIndex={0}
@@ -32,13 +33,14 @@ const Pagination = ({ pagination, page, isPreviousData, onPaginate }: Props) => 
                 >{"<"}</Button>
                 <span>{page} / {pages}</span>
                 <Button
+                    data-testid="next"
                     onClick={handleClick}
                     disabled={!urls.next}
                     tabIndex={0}
                     title="Next Page"
                 >{">"}</Button>
             </div>
-            <Button onClick={handleClick} disabled={!urls?.next} tabIndex={0}>Last</Button>
+            <Button onClick={handleClick} disabled={!urls?.next} tabIndex={0} data-testid="last">Last</Button>
         </section>
     )
 }
