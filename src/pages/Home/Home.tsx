@@ -45,6 +45,12 @@ const Home = () => {
     return null;
   }
 
+  const handleSearch = (query: string) => {
+    // Fresh search should reset page to 1
+    setPage(1);
+    setQuery(query);
+  }
+
   return (
     <main>
       <NavSearch
@@ -52,7 +58,7 @@ const Home = () => {
         isPreviousData={isPreviousData}
         page={page}
         onPaginate={(page) => setPage(page)}
-        onSearch={(query) => setQuery(query)}
+        onSearch={handleSearch}
       />
       {renderContent()}
       {!!release && (
