@@ -35,7 +35,7 @@ const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: P
                     onChange={handleQuery}
                     placeholder="Type Moderat..."
                 />
-                <Button>Search</Button>
+                <Button className={styles.nav__btn}>Search</Button>
             </form>
             {!!pagination && (
                 <Pagination

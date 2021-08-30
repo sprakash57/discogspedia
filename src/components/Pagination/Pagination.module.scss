@@ -1,10 +1,11 @@
 .panel {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 2rem;
     button {
         height: 40px;
         padding: 0;
+        box-shadow: 3px 3px 4px hsl(263deg 71% 49%), -3px -2px 4px hsl(268deg 62% 55%);
     }
 }
 .panel__prevnext {

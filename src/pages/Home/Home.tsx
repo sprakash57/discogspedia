@@ -18,7 +18,7 @@ const Home = () => {
   const renderContent = () => {
     if (status === "loading") return <Loader />
 
-    if (status === "error") return <div className={styles.alert}>Something went wrong! Try again.</div>
+    if (status === "error") return <div className={styles.alert} role="alert">Something went wrong! Try again.</div>
 
     if (status === "success" && data?.results.length) {
       const { results } = data;
@@ -40,7 +40,7 @@ const Home = () => {
       )
     }
 
-    if (data?.results.length === 0) return <div className={styles.alert}>No results found!</div>
+    if (data?.results.length === 0) return <div className={styles.alert} role="alert">No results found!</div>
 
     return null;
   }

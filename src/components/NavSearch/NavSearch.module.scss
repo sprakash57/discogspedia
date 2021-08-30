@@ -47,6 +47,9 @@
     align-items: baseline;
     justify-content: center;
 }
+.nav__btn {
+    box-shadow: 3px 3px 4px hsl(263deg 77% 42%), -3px -2px 4px hsl(268deg 54% 46%);
+}
 @media (min-width: 640px) {
     main {
         max-width: none;

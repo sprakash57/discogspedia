@@ -33,7 +33,7 @@ $content-height: 400px;
     margin-top: 0.5rem;
     p {
         margin: 0.25rem 0;
-        opacity: 0.5;
+        font-weight: 100;
     }
 }
 .format {
@@ -70,5 +70,6 @@ $content-height: 400px;
     transition: all 0.2s ease-in-out; 
 }
 .release:hover .release__detail{
+    background-color: var(--purple100);
     opacity: 1;
 }
