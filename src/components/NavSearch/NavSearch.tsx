@@ -52,4 +52,4 @@ const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: P
     )
 }
 
-export default NavSearch
+export default NavSearch;

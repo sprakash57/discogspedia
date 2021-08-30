@@ -1,9 +1,9 @@
+import { forwardRef } from 'react';
 import Button from 'common-components/Button';
 import Image from 'common-components/Image';
 import Loader from 'common-components/Loader';
 import { useGetRelease } from 'helpers/hooks';
 import { ellipsisText } from 'helpers/utils';
-import { forwardRef } from 'react';
 import styles from './ReleaseDetail.module.scss';
 
 type Props = {
@@ -66,4 +66,4 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: P
     return <div className={styles.alert} role="alert">Something went wrong! Try another release.</div>
 })
 
-export default ReleaseDetail
+export default ReleaseDetail;

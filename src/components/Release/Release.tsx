@@ -35,4 +35,4 @@ const Release = ({ content, onSelect }: Props) => {
     )
 }
 
-export default Release
+export default Release;

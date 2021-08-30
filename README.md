@@ -41,4 +41,5 @@ DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https:
 
 - More test cases can be added for `common-components`.
 - I tried my best to implement `Neumorphic` designs. Some of the color combinations or UX can be improved with the help of some design system or UI toolkit. Pure vanilla Sass modules are my favourite for now 😅.
+- PWA and offline needs more polishing or maybe better approach since this is my first ever attempt to achieve these.
 

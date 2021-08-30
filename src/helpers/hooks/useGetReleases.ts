@@ -16,7 +16,7 @@ const useGetReleases = (query: string | undefined, page: number) => {
         ["allReleases", query, page],
         () => fetchReleases(query, page),
         {
-            keepPreviousData: true,
+            keepPreviousData: true, // Will be used for smooth pagination
             enabled: typeof query === "string"
         }
     );
