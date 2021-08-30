@@ -29,6 +29,7 @@ const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: P
             <summary className={styles.nav__summary}>Find your favourite release right here.</summary>
             <form onSubmit={handleSearch} className={styles.nav__form}>
                 <input
+                    aria-describedby="Query"
                     data-testid="query"
                     className={styles.nav__search}
                     type="search"
