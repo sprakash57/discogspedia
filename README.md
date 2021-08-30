@@ -11,7 +11,7 @@ DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https:
 ## Local setup
 
 - You need Node.js v14+ to run this application.
-- Clone this repo and go to the clonned directory and run `yarn install`. It will install all the dependencies needed to run the application.
+- Clone this repo and go to the clonned directory and run `yarn install`. It will install all the dependencies needed to run DiscogsPedia.
 - Create `.env` file with help of provided `.env.exmaple` file.
 
 ## Available scripts
