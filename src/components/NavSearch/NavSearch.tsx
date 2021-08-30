@@ -29,13 +29,15 @@ const NavSearch = ({ onSearch, pagination, onPaginate, page, isPreviousData }: P
             <summary className={styles.nav__summary}>Find your favourite release right here.</summary>
             <form onSubmit={handleSearch} className={styles.nav__form}>
                 <input
+                    data-testid="query"
                     className={styles.nav__search}
                     type="search"
                     name="query"
                     onChange={handleQuery}
+                    value={query}
                     placeholder="Type Moderat..."
                 />
-                <Button className={styles.nav__btn}>Search</Button>
+                <Button data-testid="btn-query" className={styles.nav__btn}>Search</Button>
             </form>
             {!!pagination && (
                 <Pagination

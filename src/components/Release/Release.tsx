@@ -29,7 +29,7 @@ const Release = ({ content, onSelect }: Props) => {
                 </div>
             </section>
             <section className={styles.release__detail}>
-                <Button onClick={() => onSelect(content)}>More Details</Button>
+                <Button onClick={() => onSelect(content)} data-testid="more-details">More Details</Button>
             </section>
         </article>
     )

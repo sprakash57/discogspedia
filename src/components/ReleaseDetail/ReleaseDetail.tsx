@@ -21,7 +21,14 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: P
         const { released, community, tracklist } = data;
         return (
             <div ref={ref} className={styles.details}>
-                <Button onClick={onClose} className={styles.details__btn} aria-label="Close">X</Button>
+                <Button
+                    onClick={onClose}
+                    className={styles.details__btn}
+                    aria-label="Close"
+                    data-testid="close"
+                >
+                    X
+                </Button>
                 <Image src={thumb} alt="Cover" />
                 <h3 title={title}>{ellipsisText(title)}</h3>
                 <div className={styles.details__basics}>
@@ -56,7 +63,7 @@ const ReleaseDetail = forwardRef<HTMLDivElement, Props>(({ content, onClose }: P
             </div>
         )
     }
-    return <div>Something went wrong</div>
+    return <div className={styles.alert} role="alert">Something went wrong! Try another release.</div>
 })
 
 export default ReleaseDetail
