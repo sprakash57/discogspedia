@@ -36,7 +36,7 @@ jobs:
           REACT_APP_DISCOGS_TOKEN: ${{ secrets.REACT_APP_DISCOGS_TOKEN }}
         run: |
           yarn
-          yarn test -- --coverage --watchAll=false
+          yarn test --coverage --watchAll=false
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact

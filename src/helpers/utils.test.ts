@@ -18,3 +18,10 @@ describe("ellipsisText", () => {
     expect(mockEllipsisText("", 5)).toEqual("--");
   });
 });
+
+describe("clsx", () => {
+  it("Should concat all classes", () => {
+    const mockClsx = jest.fn(utils.clsx);
+    expect(mockClsx("class1", "class2")).toEqual("class1 class2");
+  });
+});
