@@ -30,8 +30,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: yarn
-      - run: yarn test -- --coverage --watchAll=false
+      - name: Generate Coverage
+        env:
+          REACT_APP_BASE_URL: ${{ secretes.REACT_APP_BASE_URL }}
+          REACT_APP_DISCOGS_TOKEN: ${{ secrets.REACT_APP_DISCOGS_TOKEN }}
+        run: |
+          yarn
+          yarn test -- --coverage --watchAll=false
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
