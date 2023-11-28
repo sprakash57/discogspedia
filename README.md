@@ -6,30 +6,29 @@ Here you will find releases published over <a href="https://www.discogs.com/" ta
 
 ## Demo and walkthrough
 
-DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https://discogspedia.netlify.app" target="_blank" rel="noopener noreferrer">here</a>. App has a search bar, search button and pagination panel (that will appear once you click on search). Once you provide a search query, it will fetch all the related releases and render it on UI. Try hovering over the cards and you will get an option to see `more details` clickig on which will reveal a modal with additional details. 
+DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https://discogspedia.netlify.app" target="_blank" rel="noopener noreferrer">here</a>. App has a search bar, search button and pagination panel (that will appear once you click on search). Once you provide a search query, it will fetch all the related releases and render it on UI. Try hovering over the cards and you will get an option to see `more details` clickig on which will reveal a modal with additional details.
 
 > Psst! Don't know what to type in the search bar. Well click on the search button instead.
 
 ## Local setup
 
 - You need Node.js v14+ to run this application.
-- Clone this repo and go to the clonned directory and run `yarn install`. It will install all the dependencies needed to run DiscogsPedia.
+- Clone this repo and go to the clonned directory and run `npm install`. It will install all the dependencies needed to run DiscogsPedia.
 - Create `.env` file with the help of provided `.env.exmaple` file.
 
 ## Available scripts
 
-- `yarn start` will run the application on `localhost:3000` in the browser.
-- `yarn test` to run all the available test cases.
-- `yarn build` will build the application for deployment purpose.
-
+- `npm run dev` will run the application on `localhost:3000` in the browser.
+- `npm test` to run all the available test cases.
+- `npm build` will build the application for deployment purpose.
 
 ## Features
 
-- Responsive - Works well on handheld as well as laptop screens. Thanks to Grid, Flexbox and Media queries.
-- Accessible - I tried making the app accessible to the web crawlers by keeping `ARIA` labels, tabindex and role with the concerned elements. I have also taken care of accessible landmarks by populating them with semantic html tags.
-- Pagiantion - App utilizes the pagination supported by server. So you can easily go back and forth between pages. I am using `react-query` on front-end to making api calls, that provides smooth ui transition while traversing over different pages.
-- Works offline - App comes with service workers that helps in assets and content persistance, while react-query does the api caching and revalidations.
-- DiscogsPedia is deployed over `Netlify`.
+- Neumorphic design system
+- Responsivness works well on all screen sizes.
+- Accessible through ARIA attributes.
+- Client side pagination.
+- Server state caching for saving excessive network calls and smooth page navigation.
 
 ## Technology stack
 
@@ -41,7 +40,7 @@ DiscogsPedia is deployed on Netlify. You will find the live demo <a href="https:
 
 ## Area of Improvements
 
-- More test cases can be added for `common-components`.
-- I tried my best to implement `Neumorphic` designs. Color combinations or UX can be improved with the help of some design system or UI toolkit. Pure vanilla Sass modules are my favourite for now 😅.
-- PWA and offline needs more polishing or maybe better approach since this is my first ever attempt to achieve these.
-
+- Type-ahead feature for the search bar.
+- Back link to Deiscogs website as credit.
+- PWA and offline needs more polishing or maybe better approach.
+- List virtualization.

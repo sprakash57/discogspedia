@@ -1,18 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;500;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;500;900&display=swap");
 
 :root {
   --purple400: hsl(268, 68%, 63%);
   --purple300: hsl(263, 78%, 25%);
   --purple200: hsl(263, 66%, 45%);
   --purple100: hsl(263, 70%, 59%);
-  --cyan: hsl(179, 80%, 37%); 
+  --cyan: hsl(179, 80%, 37%);
 }
 body {
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: "Mulish", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,7 +26,12 @@ body {
     left: 0;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: linear-gradient(to bottom, var(--purple100), var(--purple100), var(--purple100));
+    background-image: linear-gradient(
+      to bottom,
+      var(--purple100),
+      var(--purple100),
+      var(--purple100)
+    );
   }
 }
 * {
@@ -39,8 +44,8 @@ body {
 }
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 0.3vw;
-  background-image: linear-gradient(to bottom, var(--purple300), var(--purple100), var(--purple100));
+  width: 0.5vw;
+  background-color: var(--purple100);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--cyan);

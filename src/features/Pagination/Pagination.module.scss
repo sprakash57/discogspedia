@@ -1,0 +1,21 @@
+.panel {
+  display: flex;
+  font-size: 0.8rem;
+  justify-content: center;
+  padding: 1.4rem;
+  box-shadow: 1px 4px 4px hsl(263deg 77% 42%);
+  button {
+    height: 30px;
+    padding: 0;
+    box-shadow: 3px 3px 4px hsl(263deg 71% 49%),
+      -3px -2px 4px hsl(268deg 62% 55%);
+  }
+}
+.panel__prevnext {
+  flex: 2;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 300px;
+  color: white;
+}

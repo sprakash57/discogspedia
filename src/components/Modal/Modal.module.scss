@@ -1,0 +1,36 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsla(0, 0%, 0%, 0.8);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  &.active {
+    opacity: 1;
+  }
+}
+.container {
+  width: 550px;
+  max-height: 700px;
+  border-radius: 20px;
+  position: fixed;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(
+    to bottom,
+    var(--purple100),
+    var(--purple100),
+    var(--purple100)
+  );
+  z-index: 9999;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    width: 370px;
+  }
+}
