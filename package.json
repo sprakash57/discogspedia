@@ -7,8 +7,7 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Sunny Prakash",
-    "email": "sunny.prakashgm@gmail.com"
+    "name": "Sunny Prakash"
   },
   "dependencies": {
     "react": "^17.0.2",
